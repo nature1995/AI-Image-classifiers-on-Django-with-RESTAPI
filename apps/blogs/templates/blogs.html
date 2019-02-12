@@ -1,0 +1,45 @@
+{% extends "theme.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+    <main role="main">
+
+      <section class="jumbotron text-center" style="background-image:url({% static "dragon.png" %}); background-size:cover;">
+         <div class="container" style="height:100%; width:100%;" >
+          <h1 class="jumbotron-heading">然小狼的博客</h1>
+          <p class="lead text-dark">回到最初的梦想<br>Back to the original dream</p>
+          <p>
+            <a href="{% url '主页' %}" class="btn btn-primary my-2">Back home</a>
+            <a href="https://github.com/nature1995" class="btn btn-danger">Github</a>
+            <a href="https://www.linkedin.com/in/ziran-gong" class="btn btn-primary">Linkin</a>
+            <a href="https://nature1995.club" class="btn btn-secondary btn-lg">Blog</a>
+            <a href="http://ranxiaolang.com:8000" class="btn btn-light">Cloud Disk</a>
+          </p>
+        </div>
+      </section>
+
+        <div class="container text-center justify-content-between">
+        <p align="center" class="fa-align-justify ">
+          <iframe width=85% height="450rem" src="https://www.youtube.com/embed/qDXFGchF55o" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </p>
+        </div>
+
+        <div class="container text-center justify-content-between">
+        {#    <h1>博客</h1> #}
+        {% for blogs in blogss.all  %}
+        <h4><a class="text-center" href="{{ blogs.id }}">{{ blogs.title }}</a></h4>
+        {{ blogs.date }}
+        <br>
+        <img src="{{ blogs.image.url }}" width="30%" height="30%">
+        <br>
+        <pre clstyle="width:500px;">{{ blogs.short_text }}</pre>
+        <br>
+        {% endfor %}
+        </div>
+
+    </main>
+
+{% endblock content %}
+
+

@@ -1,0 +1,141 @@
+{% extends "theme.html" %}
+{% load staticfiles %}
+
+{% block style %}
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <style>
+        #app {
+            font-family: 'Avenir', Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-align: center;
+            color: #2c3e50;
+        }
+        div.showImage{
+            width: 1080px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        div.showImage::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        div.showImage > button{
+            margin-top: 280px;
+        }
+        #img1{
+            width: 350px ;
+            height: 600px;
+            float: left;
+        }
+        #img2{
+            width: 350px;
+            height: 600px;
+            float: right;
+        }
+        #faceform{
+            text-align: center;
+        }
+        .col-center-block {
+          float: none;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+    </style>
+{% endblock style %}
+
+{% block content %}
+  <div id="app" class="container">
+      <form class="" id="faceform" action="https://api-cn.faceplusplus.com/facepp/v3/compare" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="input-group col-md-6 col-center-block">
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" name="image_file1" @change="getFile1" id="image_file1" aria-describedby="inputGroupFileAddon01">
+            <label class="custom-file-label" for="image_file1">Choose file</label>
+          </div>
+        </div>
+        <br>
+        <div class="input-group col-md-6 col-center-block">
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" name="image_file2" @change="getFile2" id="image_file2" aria-describedby="inputGroupFileAddon02">
+            <label class="custom-file-label" for="image_file2">Choose file</label>
+          </div>
+        </div>
+      </form>
+      <br>
+      <div class="col-md-6 col-center-block">
+        <button type="button" @click="submit" class="btn btn-danger">Campare</button>
+        <br>
+        <br>
+        <span id="showconfidence"></span>
+        <br>
+      </div>
+      <div class="row">
+        <div class="showImage col-md-3 col-center-block">
+          <img id="img1" :src="src1" hidden>
+        </div>
+        <div class="showImage col-md-3 col-center-block">
+          <img id="img2" :src="src2" hidden>
+        </div>
+      </div>
+
+  </div>
+{% endblock content %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script>
+    var app = new Vue({
+      el: '#app',
+      data:{
+          src1: '',
+          src2: '',
+          file1: null,
+          file2: null,
+          confidence:false
+      },
+      methods:{
+        submit:function(){
+            var self = this
+            $('#showconfidence').text('In the calculation, please wait...')
+            $.ajax({
+                url: 'face_compare_request/',
+                type: 'POST',
+                cache: false,
+                data: new FormData($('#faceform')[0]),
+                processData: false,
+                contentType: false
+            }).done(function(res) {
+                $('#showconfidence').text('Similarity：'+res.confidence)
+            }).fail(function(res) {
+                console.log(res)
+            });
+        },
+        getFile1:function($event){
+          this.file1 = $event.target.files[0];
+          var reader = new FileReader();
+          reader.readAsDataURL(this.file1);
+          var app = this;
+          reader.onloadend=function() {
+              app.src1 = this.result;
+              $('#img1').attr('hidden',false)
+          };
+        },
+        getFile2:function($event){
+          this.file2 = $event.target.files[0];
+          var reader = new FileReader();
+          reader.readAsDataURL(this.file2);
+          var app = this;
+          reader.onloadend=function() {
+              app.src2 = this.result;
+              $('#img2').attr('hidden',false)
+          };
+        }
+      }
+    })
+</script>
+{% endblock scripts %}

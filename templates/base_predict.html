@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+{% load staticfiles %}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="然小狼 | ranxiaolang.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Ziran Gong">
+    <link rel="icon" href="{% static "favicon.ico" %}">
+
+    <title>然小狼 | ranxiaolang.com</title>
+
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+      <style>
+          #app {
+              font-family: 'Avenir', Helvetica, Arial, sans-serif;
+              -webkit-font-smoothing: antialiased;
+              -moz-osx-font-smoothing: grayscale;
+              text-align: center;
+              color: #2c3e50;
+          }
+          div.showImage > button{
+              margin-top: 280px;
+          }
+          #img1{
+              width: 800px ;
+              height: 350px ;
+              text-align: center;
+          }
+          #faceform{
+              text-align: center;
+          }
+          .col-center-block {
+            float: none;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+          }
+          .img-responsive {
+            display: block;
+            height: auto;
+            max-width: 100%;
+          }
+      </style>
+
+    <!-- core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  </head>
+
+  <body>
+   <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href=" {% url '主页' %}">
+          <img  src="{% static "logo0.png" %}"style="height: 3.8rem" />
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+        <div class="collapse navbar-collapse " id="navbarNavDropdown">
+          <ul class="navbar-nav justify-content-end container-fluid p-0 mt-2 mt-md-0">
+              <li class="nav-item text-right">
+              <a class="nav-link" href="{% url '主页' %}">Home <span class="sr-only">(current)</span></a>
+              </li>
+
+              <li class="d-block d-md-none border-top border-top-1"></li>
+              <li class="nav-item dropdown text-right">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Article
+              </a>
+              <div class="dropdown-menu text-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href=#>ROG</a>
+              </div>
+              </li>
+
+              <li class="d-block d-md-none border-top border-top-1"></li>
+              <li class="nav-item dropdown text-right">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Resource
+              </a>
+              <div class="dropdown-menu text-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="{% url 'baidu_cloud' %}">Baidu-Cloud</a>
+                  <a class="dropdown-item" href="{% url 'game_snake' %}">Snake</a>
+                  <a class="dropdown-item"href="{% url 'game_2048' %}">2048</a>
+              </div>
+              </li>
+
+              <li class="d-block d-md-none border-top border-top-1"></li>
+              <li class="nav-item dropdown text-right">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Tools
+              </a>
+              <div class="dropdown-menu text-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Software</a>
+                  <a class="dropdown-item" href="#">Document</a>
+                  <a class="dropdown-item" href="{% url 'rasp' %}">IOT</a>
+                  <a class="dropdown-item" href="{% url 'face_comparison' %}">Face Comparison</a>
+                  <a class="dropdown-item" href="{% url 'bank_card' %}">Bank Card Detection</a>
+                  <a class="dropdown-item" href="{% url 'gesture' %}">Gesture Detection</a>
+                  <a class="dropdown-item" href="{% url 'predict' %}">Objects Prediction</a>
+              </div>
+              </li>
+
+              <li class="d-block d-md-none border-top border-top-1"></li>
+              <li class="nav-item text-right">
+              <a class="nav-link" href="https://nature1995.club/about/">About&nbsp;</a>
+
+              </li>
+
+              <li class="nav-item text-right">
+                  {% if user.is_authenticated %}
+                  <a class="btn btn-outline-primary" href="JavaScript:{document.getElementById('退出').submit()}">Logout</a>
+                  <form id= '退出' method="POST" action='{% url 'LogoutPage' %}' align='center'>
+                  {% csrf_token %}
+                  <input type="hidden">
+                  </form>
+                  {% else %}
+                  <a class="btn btn-outline-primary" href="{% url 'LoginPage' %}">Login</a>&nbsp;
+                  <a class="btn btn-outline-primary" href="{% url 'SignupPage' %}">Sign up</a>
+                  {% endif %}
+              </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <br>
+
+    <div id="app" class="container">
+        <form class="" id="faceform" action="https://api-cn.faceplusplus.com/cardpp/v1/ocrbankcard" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="input-group col-md-6 col-center-block">
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Select Model</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'predict' %}">ResNet50</a>
+                <a class="dropdown-item" href="{% url 'predict_MobileNet' %}">MobileNet</a>
+                <a class="dropdown-item" href="{% url 'predict_MobileNetV2' %}">MobileNetV2</a>
+                <a class="dropdown-item" href="{% url 'predict_Xception' %}">Xception</a>
+                <a class="dropdown-item" href="{% url 'predict_VGG16' %}">VGG16</a>
+                <a class="dropdown-item" href="{% url 'predict_VGG19' %}">VGG19</a>
+                <a class="dropdown-item" href="{% url 'predict_DenseNet121' %}">DenseNet121</a>
+                <a class="dropdown-item" href="{% url 'predict_DenseNet169' %}">DenseNet169</a>
+                <a class="dropdown-item" href="{% url 'predict_DenseNet201' %}">DenseNet201</a>
+                <a class="dropdown-item" href="{% url 'predict_InceptionResNetV2' %}">InceptionResNetV2</a>
+                <a class="dropdown-item" href="{% url 'predict_InceptionV3' %}">InceptionV3</a>
+                <a class="dropdown-item" href="{% url 'predict_NASNetMobile' %}">NASNetMobile</a>
+                <a class="dropdown-item" href="{% url 'predict_NASNetLarge' %}">NASNetLarge</a>
+              </div>
+          </ul>
+          </div>
+          <br>
+          <div class="input-group col-md-6 col-center-block">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" name="image" @change="getFile1" id="image_file1" aria-describedby="inputGroupFileAddon01">
+              <label class="custom-file-label" for="image_file1">Choose file</label>
+            </div>
+          </div>
+          <br>
+        </form>
+        <br>
+        <div class="col-md-6 col-center-block">
+          <button type="button" @click="submit" class="btn btn-warning">Identify</button>
+          <br>
+          <br>
+          <span id="showprediction"></span>
+          <br>
+          <br>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-center-block">
+            <img class="img-responsive" id="img1" :src="src1" hidden>
+          </div>
+        </div>
+    </div>
+
+    <section id="footer_nav" class="bg-light mt-4">
+    <div class="container pt-3 pb-4">
+        <dl class="row mb-0">
+            <div class="col-sm">
+                <dt class="mb-1 mt-2">Topics</dt>
+                <dd class="mb-0">
+                    <a class="text-dark" href="http://www.ranxiaolang.com:8000">
+                        Cloud Disk</a>
+                </dd>
+             </div>
+            <div class="col-sm">
+                <dt class="mb-1 mt-2">About Me</dt>
+                <dd class="mb-0">
+                     <a class="text-dark" href="https://nature1995.club/about/">Ziran Gong&nbsp;</a>
+                </dd>
+            </div>
+            <div class="col-sm">
+                <dt class="mb-1 mt-2">Follow Us</dt>
+                <dd class="mb-0">
+                    <img style="height: 1.5rem" src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/qMUjOdv.png">
+                        <a class="text-dark" href="{% static 'gzr-youlang.png' %}">WeChat&nbsp;</a>
+                </dd>
+            </div>
+        </dl>
+    </div>
+    </section>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p align="center"> ©2018-2019&nbsp;&nbsp;然小狼&nbsp;&nbsp;|&nbsp;Ranxiaolang</p>
+        <p align="center"> <a align="center" class="text-muted" href="http://www.miitbeian.gov.cn/"> All Rights Reserved.</a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </body>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+  {% block scripts %}
+
+  {% endblock scripts %}
+
+</html>
+
+

@@ -1,0 +1,131 @@
+{% extends "theme.html" %}
+{% load staticfiles %}
+
+{% block style %}
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <style>
+        #app {
+            font-family: 'Avenir', Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-align: center;
+            color: #2c3e50;
+        }
+        div.showImage > button{
+            margin-top: 280px;
+        }
+        #img1{
+            width: 800px ;
+            height: 350px ;
+            text-align: center;
+        }
+        #faceform{
+            text-align: center;
+        }
+        .col-center-block {
+          float: none;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .img-responsive {
+          display: block;
+          height: auto;
+          max-width: 100%;
+        }
+
+
+    </style>
+{% endblock style %}
+
+{% block content %}
+  <div id="app" class="container">
+      <form class="" id="faceform" action="https://api-cn.faceplusplus.com/cardpp/v1/ocrbankcard" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="input-group col-md-6 col-center-block">
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" name="image_file" @change="getFile1" id="image_file1" aria-describedby="inputGroupFileAddon01">
+            <label class="custom-file-label" for="image_file1">Choose file</label>
+          </div>
+        </div>
+      </form>
+      <br>
+      <div class="col-md-6 col-center-block">
+        <button type="button" @click="submit" class="btn btn-dark">Identify</button>
+        <br>
+        <br>
+        <span id="shownumber"></span>
+        <br>
+        <span id="showorganization"></span>
+        <br>
+        <span id="showbank"></span>
+        <br>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-center-block">
+          <img class="img-responsive" id="img1" :src="src1" hidden>
+        </div>
+      </div>
+  </div>
+
+{% endblock content %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script>
+    var app = new Vue({
+      el: '#app',
+      data:{
+          src1: '',
+          file1: null,
+          card_numbers: false
+      },
+      methods:{
+        submit:function(){
+            var self = this
+            $('#shownumber').text('In the calculation, please wait...')
+            $.ajax({
+                url: 'bank_card_request/',
+                type: 'POST',
+                cache: false,
+                data: new FormData($('#faceform')[0]),
+                processData: false,
+                contentType: false,
+                timeout: 10000,//10秒超时时间
+            }).done(function(res) {
+                  {#for(var i=0,l=res.bank_cards.length;i<l;i++) {#}
+                  {#    for (var key in res.bank_cards[i]) {#}
+                  {#        console.log(key + ':' + res.bank_cards[i][key]);#}
+                  {#        card_numbers = res.bank_cards[0]['number']#}
+                  {#    }}#}
+                try {
+                  card_numbers = res.bank_cards[0]['number']
+                  card_organization = res.bank_cards[0]['organization']
+                  card_bank = res.bank_cards[0]['bank']
+
+                  $('#shownumber').text('Card number: '+ card_numbers)
+                  $('#showorganization').text('Card organization: '+ card_organization)
+                  $('#showbank').text('Card bank: '+ card_bank)
+                }
+                catch (e) {
+                  $('#shownumber').text('Please make sure you upload a bank card, try it again!')
+                }
+            }).fail(function(res) {
+                console.log(res)
+            });
+        },
+        getFile1:function($event){
+          this.file1 = $event.target.files[0];
+          var reader = new FileReader();
+          reader.readAsDataURL(this.file1);
+          var app = this;
+          reader.onloadend=function() {
+              app.src1 = this.result;
+              $('#img1').attr('hidden',false)
+          };
+        },
+      }
+    })
+</script>
+{% endblock scripts %}
