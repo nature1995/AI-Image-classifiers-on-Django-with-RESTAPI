@@ -1,0 +1,18 @@
+{% extends "theme.html" %}
+{% load staticfiles %}
+
+{% block content %}
+  <h1>This is ai</h1>
+  <form method="post" action="">
+  {%csrf_token%}
+  <input name="text" type="text" value="今天天气不错" />
+  <input name="text1" type="text" value="你好呀" />
+  <input name="submit" type="submit" value="提交" />
+  </form>
+
+  </form>
+{#  {% for k,v in r.json %}#}
+{#    <h1>{{ k }}</h1>#}
+{#    <h1>{{ v }}</h1>#}
+{#  {% endfor %}#}
+{% endblock content %}

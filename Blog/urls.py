@@ -27,6 +27,7 @@ from apps.bank_card.views import *
 from apps.detect_object.views import *
 from apps.gesture.views import *
 from apps.identification.views import *
+from apps.tenc_ai.views import *
 import Blog
 
 urlpatterns = [
@@ -54,6 +55,8 @@ urlpatterns = [
     path(r'', include('apps.identification.urls'), ),
     path('test', test),
     path('ajax', ajax),
+    url(r'^tenc-ai/', tenc_ai, name='tenc_ai'),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT,) + static(settings.STATIC_URL,
                                                                             document_root=settings.STATIC_ROOT)

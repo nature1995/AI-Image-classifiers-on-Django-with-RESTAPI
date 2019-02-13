@@ -74,6 +74,7 @@ INSTALLED_APPS = [
     'apps.detect_object',
     'apps.gesture',
     'apps.identification',
+    'apps.tenc_ai',
     # 'account',
 ]
 
