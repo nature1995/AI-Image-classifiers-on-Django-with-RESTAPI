@@ -1,4 +1,4 @@
-# A Keras deep learning image classify Django server with REST API.
+# Image classify Django server with REST API
 [![python3.5](https://img.shields.io/badge/python-3.5-blue.svg)]()
 [![python3.6](https://img.shields.io/badge/python-3.6-brightgreen.svg)]()
 [![django2.1.5](https://img.shields.io/badge/django-2.1.5-orange.svg)]()
