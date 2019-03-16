@@ -85,7 +85,7 @@ predictions  | label, float        | pair of label and it's probability
 
 #### Example
 
-**Using Postman**  
+Using [Postman](https://www.getpostman.com/downloads/) to test the API:  
 POST http://127.0.0.1:8000/predict_VGG19/api/
 
 **Result**
