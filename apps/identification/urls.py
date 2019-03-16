@@ -19,7 +19,7 @@ from .views import *
 
 urlpatterns = [
     # path for each model separately
-    path('predict/predict_request/', predict_request, name='predict_request'),
+    path('predict/api/', predict_request, name='predict_request'),
     path('predict/', predict, name='predict'),
     #
     path('predict_MobileNet/predict_MobileNet_request/', predict_MobileNet_request,
@@ -39,7 +39,7 @@ urlpatterns = [
          name='predict_VGG16_request'),
     path('predict_VGG16/', predict_VGG16, name='predict_VGG16'),
     ##
-    path('predict_VGG19/predict_VGG19_request/', predict_VGG19_request,
+    path('predict_VGG19/api/', predict_VGG19_request,
          name='predict_VGG19_request'),
     path('predict_VGG19/', predict_VGG19, name='predict_VGG19'),
 
