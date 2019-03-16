@@ -33,12 +33,12 @@ This project provides image processing and recognition capabilities in the field
 - [x] Run each part of functions seperately in my own cloud server 
 - [x] Run all the functions in my own cloud server
 
-# Requirements
+## Requirements
 ```
 pip3 install -r requirements.txt
 ```
 
-# Usage
+## Usage
 I assume you already have your own local virtual environment.  
 ```
 git clone https://github.com/nature1995/image-classify-django-server.git
@@ -121,10 +121,10 @@ POST http://127.0.0.1:8000/predict_VGG19/api/
 }
 ```
 
-# Preview
+## Preview
 https://ranxiaolang.com
 
-# Compatibility
+## Compatibility
 The codes are tested using Travis-CI platform with django 2.1.5 and Python 3.5, 3.6
 
 ## Others
