@@ -81,10 +81,18 @@ def predict_request(request):
 
     # ensure an image was properly uploaded to our endpoint
     if request.method == 'POST':
+
+        top = request.POST.get("top")
+
         if request.FILES.get("image"):
             # read the image in PIL format
             image = request.FILES["image"].read()
             image = Image.open(io.BytesIO(image))
+
+            if top:
+                top = int(top)
+            else:
+                top = 6
 
             # preprocess the image and prepare it for classification
             # choice a format which the model use
@@ -97,7 +105,7 @@ def predict_request(request):
             # of predictions to return to the client
             with settings.SITE_GRAPH.as_default():
                 preds = settings.SITE_MODEL.predict(image)
-            results = imagenet_utils.decode_predictions(preds)
+            results = imagenet_utils.decode_predictions(preds, top=top)
             data["predictions"] = []
 
             # loop over the results and add them to the list of
@@ -404,11 +412,18 @@ def predict_VGG19_request(request):
 
     # ensure an image was properly uploaded to our endpoint
     if request.method == 'POST':
+
+        top = request.POST.get("top")
+
         if request.FILES.get("image"):
             # read the image in PIL format
             image = request.FILES["image"].read()
             image = Image.open(io.BytesIO(image))
 
+            if top:
+                top = int(top)
+            else:
+                top = 6
             # preprocess the image and prepare it for classification
             # choice a format which the model use
             image = prepare_image(image, target=(224, 224))
@@ -417,7 +432,7 @@ def predict_VGG19_request(request):
             # of predictions to return to the client
             with settings.SITE_GRAPH.as_default():
                 preds = settings.SITE_MODEL.predict(image)
-            results = imagenet_utils.decode_predictions(preds)
+            results = imagenet_utils.decode_predictions(preds, top=top)
             data["predictions"] = []
 
             # loop over the results and add them to the list of
@@ -462,6 +477,7 @@ def predict_DenseNet121_request(request):
             image = request.FILES["image"].read()
             image = Image.open(io.BytesIO(image))
 
+            k = request.GET("k")
             # preprocess the image and prepare it for classification
             # choice a format which the model use
             image = prepare_image(image, target=(224, 224))/255
@@ -470,7 +486,7 @@ def predict_DenseNet121_request(request):
             # of predictions to return to the client
             with settings.SITE_GRAPH.as_default():
                 preds = settings.SITE_MODEL.predict(image)
-            results = imagenet_utils.decode_predictions(preds)
+            results = imagenet_utils.decode_predictions(preds, top=k)
             data["predictions"] = []
 
             # loop over the results and add them to the list of
