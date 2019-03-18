@@ -18,7 +18,7 @@
             var probabilities = []
             $('#showprediction').text('In the calculation, please wait...')
             $.ajax({
-                  url: 'predict_InceptionResNetV2_request/',
+                  url: 'api/',
                 type: 'POST',
                 cache: false,
                 data: new FormData($('#faceform')[0]),
