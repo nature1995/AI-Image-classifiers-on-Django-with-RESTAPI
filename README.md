@@ -1,7 +1,7 @@
 # Image classify Django server with REST API
 
 <div align="center">
-    <a href=""><img src="https://i.loli.net/2019/03/19/5c8ff57264779.png" width="200" hegiht="200"/></a>
+    <a href=""><img src="https://i.loli.net/2019/03/19/5c8ff77663c65.png" width="200" hegiht="200"/></a>
 </div>
 <br>
 
