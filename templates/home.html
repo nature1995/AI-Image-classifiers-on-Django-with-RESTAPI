@@ -84,14 +84,14 @@
               <li class="nav-item text-right">
 
                   {% if user.is_authenticated %}
-                  <a class="btn btn-outline-primary" href="JavaScript:{document.getElementById('退出').submit()}">Logout</a>
+                  <a class="btn btn-outline-dark" href="JavaScript:{document.getElementById('退出').submit()}">Logout</a>
                   <form id= '退出' method="POST" action='{% url 'LogoutPage' %}' align='center'>
                   {% csrf_token %}
                   <input type="hidden">
                   </form>
                   {% else %}
-                  <a class="btn btn-primary" href="{% url 'LoginPage' %}">Login</a>&nbsp;
-                  <a class="btn btn-outline-primary" href="{% url 'SignupPage' %}">Sign up</a>
+                  <a class="btn btn-dark" href="{% url 'LoginPage' %}">Sign in</a>&nbsp;
+                  <a class="btn btn-outline-dark" href="{% url 'SignupPage' %}">Sign up</a>
                   {% endif %}
               </li>
           </ul>
@@ -130,13 +130,20 @@
 
     <main role="main">
 
-      <section class="jumbotron text-center" style=" background-image:url({% static "/images/mountain.jpg"%});background-size:cover;">
+      <section class="jumbotron text-center" style="background-image:url({% static "/images/mountain.jpg"%});background-size:cover;">
       <canvas id="home-canvas" width="1920" height="10"></canvas>
       <p>
-        <a href="https://github.com/nature1995" class="btn btn-danger">Github</a>
-        <a href="https://www.linkedin.com/in/ziran-gong" class="btn btn-primary">Linkedin</a>
-        <a href="https://nature1995.club" class="btn btn-secondary btn-lg">Blog</a>
-        <a href="http://ranxiaolang.com:8000" class="btn btn-light">Cloud Disk</a>
+        <a class="btn btn-danger" href="{% url 'face_comparison' %}">Face Comparison</a>
+        <a class="btn btn-warning" href="{% url 'bank_card' %}">Bank Card Detection</a>
+        <a class="btn btn-info btn-lg" href="{% url 'predict' %}">Objects Prediction</a>
+        <a class="btn btn-success" href="{% url 'gesture' %}">Gesture Detection</a>
+
+      </p>
+      <p>
+        <a href="https://github.com/nature1995" class="btn btn-outline-danger">Github</a>
+        <a href="https://www.linkedin.com/in/ziran-gong" class="btn btn-outline-primary">Linkedin</a>
+        <a href="https://nature1995.club" class="btn btn-outline-secondary btn-lg">Blog</a>
+        <a href="http://ranxiaolang.com:8000" class="btn btn-outline-light">Cloud Disk</a>
       </p>
 
       </section>

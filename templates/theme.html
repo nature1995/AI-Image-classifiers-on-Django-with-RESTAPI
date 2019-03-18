@@ -87,14 +87,14 @@
 
               <li class="nav-item text-right">
                   {% if user.is_authenticated %}
-                  <a class="btn btn-outline-primary" href="JavaScript:{document.getElementById('退出').submit()}">Logout</a>
+                  <a class="btn btn-outline-dark" href="JavaScript:{document.getElementById('退出').submit()}">Logout</a>
                   <form id= '退出' method="POST" action='{% url 'LogoutPage' %}' align='center'>
                   {% csrf_token %}
                   <input type="hidden">
                   </form>
                   {% else %}
-                  <a class="btn btn-primary" href="{% url 'LoginPage' %}">Login</a>&nbsp;
-                  <a class="btn btn-outline-primary" href="{% url 'SignupPage' %}">Sign up</a>
+                  <a class="btn btn-dark" href="{% url 'LoginPage' %}">Sign in</a>&nbsp;
+                  <a class="btn btn-outline-dark" href="{% url 'SignupPage' %}">Sign up</a>
                   {% endif %}
               </li>
           </ul>
