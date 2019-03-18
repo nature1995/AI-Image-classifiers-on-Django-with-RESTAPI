@@ -28,8 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
-#Application definition
+# Application definition
 # 基本设定
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
@@ -40,14 +39,15 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
-# # 邮箱设定
-EMAIL_HOST = 'smtp.qq.com'
-EMAIL_PORT = 25
-EMAIL_HOST_USER = 'gzr2008@vip.qq.com' # 你的 QQ 账号和授权码
-EMAIL_HOST_PASSWORD = 'fsuebzoaafnhbejh'
-EMAIL_USE_TLS = True  # 这里必须是 True，否则发送不成功
-EMAIL_FROM = 'gzr2008@vip.qq.comm'# 你的 QQ 账号
-DEFAULT_FROM_EMAIL = 'Ziran.Gong<noreply@qq.com>gzr2008@vip.qq.com'
+# Email setup
+# EMAIL_BACKEND ='django.core.mail.backends.console.EmailBackend' # Console output
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.exmail.qq.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'weather@ranxiaolang.com'
+EMAIL_HOST_PASSWORD = 'S8XHdVFMdVZsnigx'
+EMAIL_USE_SSL = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
 INSTALLED_APPS = [
@@ -80,7 +80,6 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
-EMAIL_BACKEND ='django.core.mail.backends.console.EmailBackend'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
