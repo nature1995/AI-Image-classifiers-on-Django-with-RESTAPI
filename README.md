@@ -1,4 +1,10 @@
 # Image classify Django server with REST API
+
+<div align="center">
+    <a href=""><img src="https://i.loli.net/2019/03/19/5c8ff57264779.png" width="200" hegiht="200"/></a>
+</div>
+<br>
+
 [![python3.5](https://img.shields.io/badge/python-3.5-blue.svg)]()
 [![python3.6](https://img.shields.io/badge/python-3.6-brightgreen.svg)]()
 [![django2.1.5](https://img.shields.io/badge/django-2.1.5-orange.svg)]()

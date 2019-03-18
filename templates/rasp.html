@@ -73,29 +73,29 @@ google.maps.event.addDomListener(window, 'load', initialize);
         <div class="col-sm-2"></div>
         <div class="col-sm-2"><h4>Room</h4>
         {% if roomstate == 'no' %}
-        <img src="{% static "g.png" %}">
+        <img src="{% static "images/g.png" %}">
         {% else %}
-        <img src="{% static "r.png" %}">
+        <img src="{% static "/images/r.png" %}">
         {% endif %}</div>
         <div class="col-sm-2"><h4>Door</h4>
         {% if doorstate == 'closed' %}
-        <img src="{% static "g.png" %}">
+        <img src="{% static "images/g.png" %}">
         {% else %}
-        <img src="{% static "r.png" %}">
+        <img src="{% static "/images/r.png" %}">
         {% endif %}</div>
         <div class="col-sm-2"><h4>Object Detected: {{occupiedCount}}</h4>
         {% if currentstate == 'on' %}
-        <img src="{% static "g.png" %}">
+        <img src="{% static "images/g.png" %}">
         {% else %}
-        <img src="{% static "r.png" %}">
+        <img src="{% static "/images/r.png" %}">
         {% endif %}</div>
 
                 <div class="col-sm-2">
         <h3>State</h3>
             {% if currentmode == 'match' %}
-            <img src="{% static "g.png" %}">
+            <img src="{% static "images/g.png" %}">
             {% else %}
-            <img src="{% static "r.png" %}">
+            <img src="{% static "/images/r.png" %}">
             {% endif %}</div>
             <div class="col-sm-1"></div>
     </div>

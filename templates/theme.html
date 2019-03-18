@@ -24,7 +24,7 @@
    <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <a class="navbar-brand" href=" {% url '主页' %}">
-          <img  src="{% static "logo0.png" %}"style="height: 3.8rem" />
+          <img  src="{% static "/images/logo0.png" %}"style="height: 3.8rem" />
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -37,7 +37,7 @@
 
               <li class="d-block d-md-none border-top border-top-1"></li>
               <li class="nav-item dropdown text-right">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Projects
               </a>
               <div class="dropdown-menu text-right" aria-labelledby="navbarDropdownMenuLink">
@@ -53,7 +53,7 @@
 
               <li class="d-block d-md-none border-top border-top-1"></li>
               <li class="nav-item dropdown text-right">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Resource
               </a>
               <div class="dropdown-menu text-right" aria-labelledby="navbarDropdownMenuLink">
@@ -65,12 +65,12 @@
 
               <li class="d-block d-md-none border-top border-top-1"></li>
               <li class="nav-item dropdown text-right">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Tools
               </a>
               <div class="dropdown-menu text-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Software</a>
-                  <a class="dropdown-item" href="#">Document</a>
+                  <a class="dropdown-item" href="">Software</a>
+                  <a class="dropdown-item" href="">Document</a>
                   <a class="dropdown-item" href="{% url 'rasp' %}">IOT</a>
                   <a class="dropdown-item" href="{% url 'face_comparison' %}">Face Comparison</a>
                   <a class="dropdown-item" href="{% url 'bank_card' %}">Bank Card Detection</a>
@@ -93,7 +93,7 @@
                   <input type="hidden">
                   </form>
                   {% else %}
-                  <a class="btn btn-outline-primary" href="{% url 'LoginPage' %}">Login</a>&nbsp;
+                  <a class="btn btn-primary" href="{% url 'LoginPage' %}">Login</a>&nbsp;
                   <a class="btn btn-outline-primary" href="{% url 'SignupPage' %}">Sign up</a>
                   {% endif %}
               </li>
@@ -126,7 +126,7 @@
                 <dt class="mb-1 mt-2">Follow Us</dt>
                 <dd class="mb-0">
                     <img style="height: 1.5rem" src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/qMUjOdv.png">
-                        <a class="text-dark" href="{% static 'gzr-youlang.png' %}">WeChat&nbsp;</a>
+                        <a class="text-dark" href="{% static '/images/gzr-youlang.png' %}">WeChat&nbsp;</a>
                 </dd>
             </div>
         </dl>

@@ -52,7 +52,7 @@
    <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <a class="navbar-brand" href=" {% url '主页' %}">
-          <img  src="{% static "logo0.png" %}"style="height: 3.8rem" />
+          <img  src="{% static "/images/logo0.png" %}"style="height: 3.8rem" />
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -115,7 +115,7 @@
                   <input type="hidden">
                   </form>
                   {% else %}
-                  <a class="btn btn-outline-primary" href="{% url 'LoginPage' %}">Login</a>&nbsp;
+                  <a class="btn btn-primary" href="{% url 'LoginPage' %}">Login</a>&nbsp;
                   <a class="btn btn-outline-primary" href="{% url 'SignupPage' %}">Sign up</a>
                   {% endif %}
               </li>
@@ -194,7 +194,7 @@
                 <dt class="mb-1 mt-2">Follow Us</dt>
                 <dd class="mb-0">
                     <img style="height: 1.5rem" src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/qMUjOdv.png">
-                        <a class="text-dark" href="{% static 'gzr-youlang.png' %}">WeChat&nbsp;</a>
+                        <a class="text-dark" href="{% static '/images/gzr-youlang.png' %}">WeChat&nbsp;</a>
                 </dd>
             </div>
         </dl>
