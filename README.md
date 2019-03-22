@@ -28,7 +28,7 @@ This project provides image processing and recognition capabilities in the field
 - [x] Add feature: Face comparison
 - [x] Add feature: Bank card identification
 - [x] Add feature: Gesture identification
-- [x] Add feature: image classify using following model：
+- [x] Add feature: Image classify using following model：
   - [x] ResNet50
   - [x] Xception  
   - [x] MobileNet, MobileNetV2  
@@ -59,7 +59,14 @@ python manage.py runserver 0.0.0.0:8000
 ```
 Access the web page though this link: http://127.0.0.1:8000/
 
-## Web API
+Name         				| Description
+--------------------------- | -----------------------
+Face comparison  			| Extract and analyze facial features in pictures
+Bank card identification  	| Identify the field information above the bank card
+Gesture identification  	| Detect and return the meaning of the gesture in the picture.
+Image classify 				| Detects objects in the image, returns the detected object name, and the corresponding confidence.		
+
+## Web API for image classify
 
 Name         		| Input Size| API address
 ---------    		| ----------| ----------------------------------------------------
