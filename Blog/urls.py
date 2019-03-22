@@ -32,7 +32,7 @@ import Blog
 
 urlpatterns = [
     path(r'admin/', admin.site.urls),
-    path(r'', home, name='主页'),
+    path(r'', home, name='main'),
     path(r'blogs/', include('apps.blogs.urls'), ),
     path(r'accounts/', include('allauth.urls')),
     path(r'accounts/', include('myauth.urls')),

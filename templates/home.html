@@ -13,13 +13,16 @@
 
     <title>然小狼 | ranxiaolang</title>
     <!-- core CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
   </head>
 
   <body>
      <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href=" {% url '主页' %}">
+        <a class="navbar-brand animated rotateIn" href=" {% url 'main' %}">
         <img  src="{% static "/images/logo0.png" %}"style="height: 3.8rem" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +32,7 @@
         <div class="collapse navbar-collapse " id="navbarNavDropdown">
           <ul class="navbar-nav justify-content-end container-fluid p-0 mt-2 mt-md-0">
               <li class="nav-item text-right">
-                  <a class="nav-link" href="{% url '主页' %}">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="{% url 'main' %}">Home <span class="sr-only">(current)</span></a>
               </li>
 
               <li class="d-block d-md-none border-top border-top-1"></li>
@@ -143,7 +146,7 @@
         <a href="https://github.com/nature1995" class="btn btn-outline-danger">Github</a>
         <a href="https://www.linkedin.com/in/ziran-gong" class="btn btn-outline-primary">Linkedin</a>
         <a href="https://nature1995.club" class="btn btn-outline-secondary btn-lg">Blog</a>
-        <a href="http://ranxiaolang.com:8000" class="btn btn-outline-light">Cloud Disk</a>
+        <a href="http://ranxiaolang.com:8000" class="btn btn-outline-light">Cloud Disk</a>`
       </p>
 
       </section>
