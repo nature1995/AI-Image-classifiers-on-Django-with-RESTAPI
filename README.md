@@ -161,8 +161,8 @@ POST http://127.0.0.1:8000/predict_VGG19/api/
 }
 ```
 
-## Preview
-https://ranxiaolang.com
+## Demo
+https://www.zran.xyz
 
 ## Compatibility
 The codes are tested using Travis-CI platform with django 2.1.5 and Python 3.5, 3.6
