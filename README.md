@@ -8,7 +8,7 @@
 [![python3.5](https://img.shields.io/badge/python-3.5-blue.svg)]()
 [![python3.6](https://img.shields.io/badge/python-3.6-brightgreen.svg)]()
 [![django2.1.5](https://img.shields.io/badge/django-2.1.5-orange.svg)]()
-[![Build Status](https://travis-ci.com/nature1995/Django-AI-IOT.svg?token=ihxd9jwdJ367UvYy3j9G&branch=master)](https://travis-ci.com/nature1995/Django-AI-IOT)
+[![Build Status](https://travis-ci.com/nature1995/AI-plateform-server.svg?token=ihxd9jwdJ367UvYy3j9G&branch=master)](https://travis-ci.com/nature1995/AI-plateform-server)
 
 ## Introduction  
 A Keras deep learning image classify Django server with REST API.
