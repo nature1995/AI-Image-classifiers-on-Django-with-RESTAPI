@@ -21,6 +21,7 @@ Nowadays, more and more image recognition models have been designed, but most of
     model for deploying deep learning image recognition models while testing the performance of the model.
 
 ## Key words
+Image classifiers, REST API
 
 ## Features
 - [x] Add Account management funtion
