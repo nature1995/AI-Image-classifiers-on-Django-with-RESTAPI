@@ -1,4 +1,4 @@
-# Image classify Django server with REST API
+# Image classifiers on Django server with REST API
 
 <div align="center">
     <a href=""><img src="https://i.loli.net/2019/03/19/5c8ff77663c65.png" width="200" hegiht="200"/></a>
@@ -11,18 +11,21 @@
 [![Build Status](https://travis-ci.com/nature1995/AI-plateform-server.svg?token=ihxd9jwdJ367UvYy3j9G&branch=master)](https://travis-ci.com/nature1995/AI-plateform-server)
 
 ## Introduction  
-A Keras deep learning image classify Django server with REST API.
+A Keras deep learning image classifiers on Django server with REST API. It can help you quickly deploy and apply already trained models.
 
 ## Purposals  
-This project provides image processing and recognition capabilities in the field of artificial intelligence by building web services. Those features can be conveniently and quickly used on mobile phones, computers, and tablets. Provide a good user experience and a beautiful interface。
+Nowadays, more and more image recognition models have been designed, but most of the results are derived from simulations
+ and are not applied to actual deployments. Through the actual application deployment, not only the performance of the
+  model can be detected, but also the invisible problem of its existence can be detected. It can be of great help to
+   model optimization and model improvement. The main purpose of this project is to build a Django web-based REST API
+    model for deploying deep learning image recognition models while testing the performance of the model.
+
+## Key words
 
 ## Features
-- [x] Create Django web server in local
 - [x] Add Account management funtion
 - [x] Add Login & Signup
-- [x] Buy and set cloud server (Alibaba Cloud), then install environment
 - [x] Add Django Rest Framework
-- [x] Run my Django web in cloud server
 - [x] Optimize front-end interface, adapt to mobile and PC interface
 - [x] Design front-end and back-end interactive interfaces
 - [x] Add feature: Face comparison
@@ -36,10 +39,9 @@ This project provides image processing and recognition capabilities in the field
   - [x] DenseNet121, DenseNet169, DenseNet201
   - [x] VGG16, VGG19
   - [x] NASNetMobile, NASNetLarge
-- [x] Run each part of functions seperately in local server 
-- [x] Run all the functions in local server
-- [x] Run each part of functions seperately in my own cloud server 
-- [x] Run all the functions in my own cloud server
+- [x] Run each part of functions seperately in local and cloud server
+- [x] Run all the functions in local server and cloud server
+
 
 ## Requirements
 ```
