@@ -16,6 +16,8 @@ env:
      - TRAVIS=true
 # command to install dependencies
 before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
   - python manage.py makemigrations
   - python manage.py migrate
   - python manage.py collectstatic --noinput
@@ -24,4 +26,4 @@ install:
 
 script:
     - python manage.py test
-    - sh run_tests.sh
+    - python /tests/*.py
