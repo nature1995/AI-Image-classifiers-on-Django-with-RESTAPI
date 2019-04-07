@@ -26,4 +26,4 @@ install:
 
 script:
     - python manage.py test
-    - python /tests/*.py
+    - sh run_tests.sh
