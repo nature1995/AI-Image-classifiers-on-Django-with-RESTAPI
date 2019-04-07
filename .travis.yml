@@ -1,5 +1,12 @@
-language: python
 sudo: enabled
+dist: trusty
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+language: python
 python:
     - "3.5"
     - "3.6"
