@@ -1,7 +1,4 @@
 sudo: enabled
-dist: trusty
-addons:
-  chrome: stable
 language: python
 python:
     - "3.5"
@@ -12,7 +9,6 @@ env:
      - TRAVIS=true
 # command to install dependencies
 before_script:
-  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
   - python manage.py makemigrations
   - python manage.py migrate
   - python manage.py collectstatic --noinput
@@ -21,4 +17,3 @@ install:
 
 script:
     - python manage.py test
-    - sh run_tests.sh
