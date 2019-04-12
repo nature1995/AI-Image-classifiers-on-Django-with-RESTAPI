@@ -23,19 +23,70 @@ class TestCase(unittest.TestCase):
         self.driver.find_element_by_xpath('/html/body/main/section[1]/p[1]/a[4]').click()
         self.driver.find_element_by_name("image_file").send_keys('/Users/ziran/Develop/Git_file/AI-plateform-server/tests/images/Gesture7.jpg')
         self.driver.find_element_by_xpath('//*[@id="app"]/div[1]/button').click()
-        time.sleep(10)
+        time.sleep(3)
         gesture_res = self.driver.find_element_by_xpath('//*[@id="showgesture"]')
         self.assertIn('Gesture: Hand open', gesture_res.text)
+
+    def test_bank_card_detection(self):
+        self.driver.get(self.base_url)
+        self.driver.find_element_by_xpath('/html/body/main/section[1]/p[1]/a[2]').click()
+        self.driver.find_element_by_name("image_file").send_keys('/Users/ziran/Develop/Git_file/AI-plateform-server/tests/images/card3.png')
+        self.driver.find_element_by_xpath('//*[@id="app"]/div[1]/button').click()
+        time.sleep(3)
+        bank_card_res = self.driver.find_element_by_xpath('//*[@id="shownumber"]')
+        self.assertIn('Card number: 4000123456789123', bank_card_res.text)
+
+    def test_face_compare_detection(self):
+        self.driver.get(self.base_url)
+        self.driver.find_element_by_xpath('/html/body/main/section[1]/p[1]/a[1]').click()
+        self.driver.find_element_by_name("image_file1").send_keys('/Users/ziran/Develop/Git_file/AI-plateform-server/tests/images/campare1.jpg')
+        self.driver.find_element_by_name("image_file2").send_keys('/Users/ziran/Develop/Git_file/AI-plateform-server/tests/images/campare2.jpg')
+        self.driver.find_element_by_xpath('//*[@id="app"]/div[1]/button').click()
+        time.sleep(5)
+        face_compare_res = self.driver.find_element_by_xpath('//*[@id="showconfidence"]')
+        self.assertIn('Similarity：85', face_compare_res.text)
+
+
+    def test_identification_detection(self):
+        self.driver.get(self.base_url)
+        self.driver.find_element_by_xpath('/html/body/main/section[1]/p[1]/a[3]').click()
+        time.sleep(10)
+        self.driver.find_element_by_name("image").send_keys('/Users/ziran/Develop/Git_file/AI-plateform-server/tests/images/fox.jpg')
+        self.driver.find_element_by_xpath('//*[@id="app"]/div[1]/button').click()
+        time.sleep(5)
+        r50_res_1 = self.driver.find_element_by_xpath('//*[@id="showprediction"]')
+        self.assertIn('Prediction: red_fox', r50_res_1.text)
+        self.driver.find_element_by_name("image").send_keys('/Users/ziran/Develop/Git_file/AI-plateform-server/tests/images/panda0.jpg')
+        self.driver.find_element_by_xpath('//*[@id="app"]/div[1]/button').click()
+        time.sleep(5)
+        r50_res_2 = self.driver.find_element_by_xpath('//*[@id="showprediction"]')
+        self.assertIn('Prediction: giant_panda', r50_res_2.text)
+
+        self.driver.get(self.base_url+'/predict_MobileNet/')
+        time.sleep(10)
+        self.driver.find_element_by_name("image").send_keys('/Users/ziran/Develop/Git_file/AI-plateform-server/tests/images/fox.jpg')
+        self.driver.find_element_by_xpath('//*[@id="app"]/div[1]/button').click()
+        time.sleep(5)
+        mn_res_1 = self.driver.find_element_by_xpath('//*[@id="showprediction"]')
+        self.assertIn('Prediction: red_fox', mn_res_1.text)
+        self.driver.find_element_by_name("image").send_keys('/Users/ziran/Develop/Git_file/AI-plateform-server/tests/images/panda0.jpg')
+        self.driver.find_element_by_xpath('//*[@id="app"]/div[1]/button').click()
+        time.sleep(5)
+        mn_res_2 = self.driver.find_element_by_xpath('//*[@id="showprediction"]')
+        self.assertIn('Prediction: giant_panda', mn_res_2.text)
 
     def tearDown(self):
         self.driver.quit()
 
 
 if __name__ == '__main__':
-    # 构造测试集
+    # Test suite
     suite = unittest.TestSuite()
     suite.addTest(TestCase("test_include_items"))
     suite.addTest(TestCase("test_gesture_detection"))
-    # 执行测试
-    runner = unittest.TextTestRunner(warnings='ignore')
+    suite.addTest(TestCase("test_bank_card_detection"))
+    suite.addTest(TestCase("test_face_compare_detection"))
+    suite.addTest(TestCase("test_identification_detection"))
+    # Run test
+    runner = unittest.TextTestRunner()
     runner.run(suite)

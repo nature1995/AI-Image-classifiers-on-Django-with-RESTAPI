@@ -2,7 +2,7 @@
 # Run tests
 
 # echo path
-echo $DIR, `pwd`
+echo `pwd`
 
 # execute specified tests
 python `pwd`/tests/*.py
