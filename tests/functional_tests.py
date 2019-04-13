@@ -1,11 +1,15 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 import unittest
 import time
 
 
 class TestCase(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Chrome()
+        chrome_options = Options()
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--disable-gpu')
+        self.driver = webdriver.Chrome(chrome_options=chrome_options)
         self.driver.implicitly_wait(30)
         self.driver.maximize_window()
         self.base_url = "http://0.0.0.0:8000"
@@ -32,7 +36,7 @@ class TestCase(unittest.TestCase):
         self.driver.find_element_by_xpath('/html/body/main/section[1]/p[1]/a[2]').click()
         self.driver.find_element_by_name("image_file").send_keys('/Users/ziran/Develop/Git_file/AI-plateform-server/tests/images/card3.png')
         self.driver.find_element_by_xpath('//*[@id="app"]/div[1]/button').click()
-        time.sleep(3)
+        time.sleep(5)
         bank_card_res = self.driver.find_element_by_xpath('//*[@id="shownumber"]')
         self.assertIn('Card number: 4000123456789123', bank_card_res.text)
 
@@ -45,7 +49,6 @@ class TestCase(unittest.TestCase):
         time.sleep(5)
         face_compare_res = self.driver.find_element_by_xpath('//*[@id="showconfidence"]')
         self.assertIn('Similarity：85', face_compare_res.text)
-
 
     def test_identification_detection(self):
         self.driver.get(self.base_url)

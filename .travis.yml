@@ -1,5 +1,8 @@
 sudo: enabled
 language: python
+dist: trusty
+addons:
+  chrome: stable
 python:
     - "3.5"
     - "3.6"
@@ -12,8 +15,9 @@ before_script:
   - python manage.py makemigrations
   - python manage.py migrate
   - python manage.py collectstatic --noinput
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=8000 http://0.0.0.0 &
 install:
-    - pip install -r requirements.txt
+  - pip install -r requirements.txt
 
 script:
-    - python manage.py test
+  - python manage.py test
