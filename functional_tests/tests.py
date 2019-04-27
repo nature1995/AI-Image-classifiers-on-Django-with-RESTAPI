@@ -11,8 +11,8 @@ class TestCase(LiveServerTestCase):
         chrome_options = Options()
         chrome_options.add_argument('--headless')
         chrome_options.add_argument('--disable-gpu')
-        # self.driver = webdriver.Chrome(chrome_options=chrome_options)
-        self.driver = webdriver.Chrome()
+        self.driver = webdriver.Chrome(chrome_options=chrome_options)
+        # self.driver = webdriver.Chrome()
         self.driver.implicitly_wait(30)
         self.base_url = self.live_server_url
 
