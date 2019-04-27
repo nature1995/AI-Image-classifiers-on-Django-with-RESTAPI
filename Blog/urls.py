@@ -28,7 +28,7 @@ from apps.detect_object.views import *
 from apps.gesture.views import *
 from apps.identification.views import *
 from apps.tenc_ai.views import *
-import Blog
+import Blog.views
 
 urlpatterns = [
     path(r'admin/', admin.site.urls),
@@ -40,9 +40,6 @@ urlpatterns = [
     url(r'^favicon.ico$', RedirectView.as_view(url=r'media/favicon.ico')),
     url(r'^qr/(.+)$', generate_qrcode, name='qr'),
     url(r'^qr/', home, name='qrcode'),
-    url(r'^2048/', game_2048, name='game_2048'),
-    url(r'^snake/', game_snake, name='game_snake'),
-    url(r'^baidu_cloud/', baidu_cloud, name='baidu_cloud'),
     path(r'iot/', include('apps.myapp.urls')),
     path(r'face-comparison/', face_compare, name='face_comparison'),
     path(r'face-comparison/face_compare_request/', face_compare_request, name='face_compare_request'),

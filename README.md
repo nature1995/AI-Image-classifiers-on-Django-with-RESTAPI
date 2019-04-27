@@ -42,6 +42,7 @@ Image classifiers, REST API
   - [x] NASNetMobile, NASNetLarge
 - [x] Run each part of functions seperately in local and cloud server
 - [x] Run all the functions in local server and cloud server
+- [x] Design and using machine learning CI/CD Tools such as Git, Jenkins, Nginx, uwgsi for deployment.
 
 
 ## Requirements
@@ -107,14 +108,7 @@ Model	  			|   Accuracy	|	Top-6 Accuracy
 Xception			|	0.780		|		0.955	
 VGG16				|	0.722		|		0.914	
 VGG19				|	0.723		|		0.910	
-ResNet50			|	0.748		|		0.931	
-ResNet101			|	0.785		|		0.939	
-ResNet152			|	0.776		|		0.941	
-ResNet50V2			|	0.770		|		0.920	
-ResNet101V2			|	0.783		|		0.938	
-ResNet152V2			|	0.791		|		0.952	
-ResNeXt50			|	0.787		|		0.948	
-ResNeXt101			|	0.798		|		0.953	
+ResNet50			|	0.748		|		0.931		
 InceptionV3			|	0.789		|		0.948	
 InceptionResNetV2	|	0.813		|		0.963	
 MobileNet			|	0.714		|		0.904	
@@ -124,7 +118,6 @@ DenseNet169			|	0.772		|		0.952
 DenseNet201			|	0.783		|		0.945	
 NASNetMobile		|	0.752		|		0.920	
 NASNetLarge			|	0.837		|		0.959	
-
 
 #### Example
 
