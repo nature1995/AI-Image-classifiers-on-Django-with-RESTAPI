@@ -44,6 +44,11 @@ Image classifiers, REST API
 - [x] Run all the functions in local server and cloud server
 - [x] Design and using machine learning CI/CD Tools such as Git, Jenkins, Nginx, uwgsi for deployment.
 
+## Architicture
+
+<div>
+<img src="https://s2.ax1x.com/2019/04/28/EMuffK.png" width="800" height="400" alt="Result01.png" title="Result01.png" />
+</div>
 
 ## Requirements
 ```
@@ -161,7 +166,13 @@ POST http://127.0.0.1:8000/predict_VGG19/api/
 https://www.zran.xyz
 
 ## Compatibility
-The codes are tested using Travis-CI platform with django 2.1.5 and Python 3.5, 3.6
+The codes are tested using Travis-CI platform with django 2.1.x and Python 3.5, 3.6
+
+## Summary
+This project is based on Django, keras, unittest, selenium, jenkins, Git, Nginx, and uwgsi architectures. Build a 
+complete set of platforms for machine learning image recognition models built, tested and deployed on the web.
+
+The results show that the platform can provide reliable and convenient model deployment with good accuracy and stability.
 
 ## Others
 
