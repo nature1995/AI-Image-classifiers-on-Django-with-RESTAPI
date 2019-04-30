@@ -47,7 +47,7 @@ Image classifiers, REST API
 ## Architicture
 
 <div>
-<img src="https://s2.ax1x.com/2019/04/28/EMuffK.png" width="800" height="400" alt="Result01.png" title="Result01.png" />
+<img src="https://s2.ax1x.com/2019/04/28/EMuffK.png" width="800" height="500" alt="Result01.png" title="Result01.png" />
 </div>
 
 ## Requirements
