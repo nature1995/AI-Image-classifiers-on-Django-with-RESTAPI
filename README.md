@@ -186,4 +186,4 @@ Access the web page though this link: http://127.0.0.1:8000/iot/
 * **Sergul Aydore** - [Web Page](https://github.com/sergulaydore)
 
 ## License
-This software is licensed under the GNU General Public License v3.0 License. For more information, read the file [LICENSE](https://github.com/nature1995/image-classify-django-server/blob/master/LICENSE).
+This software is licensed under the MIT License. For more information, read the file [LICENSE](https://github.com/nature1995/AI-Image-classifiers-on-Django-with-RESTAPI/blob/master/LICENSE.md).
