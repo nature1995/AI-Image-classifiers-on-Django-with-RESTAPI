@@ -158,11 +158,11 @@ POST http://127.0.0.1:8000/predict_VGG19/api/
 ## Compatibility
 The codes are tested using Travis-CI platform with django 2.1.x and Python 3.5, 3.6
 
-## Summary
-This project is based on Django, keras, unittest, selenium, jenkins, Git, Nginx, and uwgsi architectures. Build a 
-complete set of platforms for machine learning image recognition models built, tested and deployed on the web.
+## Issue
+If you have questions or issues, please feel free to tell us.
 
-The results show that the platform can provide reliable and convenient model deployment with good accuracy and stability.
+## Contribution
+Welcome to make pull request. If you have a related project/component/tool, add it with a pull request to add it!
 
 ## Others
 
