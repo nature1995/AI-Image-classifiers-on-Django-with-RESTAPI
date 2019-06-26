@@ -11,17 +11,10 @@
 [![Build Status](https://travis-ci.com/nature1995/AI-plateform-server.svg?token=ihxd9jwdJ367UvYy3j9G&branch=master)](https://travis-ci.com/nature1995/AI-plateform-server)
 
 ## Introduction  
-A Keras deep learning image classifiers on Django server with REST API. It can help you quickly deploy and apply already trained models.
+A Keras deep learning image classifiers on Django server with REST API. It can help you quickly deploy and apply ML models.
 
-## Purposals  
-Nowadays, more and more image recognition models have been designed, but most of the results are derived from simulations
- and are not applied to actual deployments. Through the actual application deployment, not only the performance of the
-  model can be detected, but also the invisible problem of its existence can be detected. It can be of great help to
-   model optimization and model improvement. The main purpose of this project is to build a Django web-based REST API
-    model for deploying deep learning image recognition models while testing the performance of the model.
-
-## Key words
-Image classifiers, REST API
+## Description 
+Machine Learning (ML) models are typically trained and test on benchmark data sets. However, such data sets may not represent the data in real applications. These ML models should be updated after tested on real data sets. Deployment of the models after each update may be time consuming. Therefore, automated deployment is needed to save time and effort. In this proposal, we describe our solution to integrate trained ML models into any application of interest. We use Django web-based platform to build REST API for model deployment. Jenkins is used for continuous integration and automated deployment of ML models into Django servers.
 
 ## Features
 - [x] Add Account management funtion
@@ -162,9 +155,6 @@ POST http://127.0.0.1:8000/predict_VGG19/api/
 }
 ```
 
-## Demo
-https://www.zran.xyz
-
 ## Compatibility
 The codes are tested using Travis-CI platform with django 2.1.x and Python 3.5, 3.6
 
@@ -193,6 +183,7 @@ Access the web page though this link: http://127.0.0.1:8000/iot/
 ## Author
 
 * **Ziran Gong** - [Web Page](http://ranxiaolang.com)
+* **Sergul Aydore** - [Web Page](https://github.com/sergulaydore)
 
 ## License
 This software is licensed under the GNU General Public License v3.0 License. For more information, read the file [LICENSE](https://github.com/nature1995/image-classify-django-server/blob/master/LICENSE).
