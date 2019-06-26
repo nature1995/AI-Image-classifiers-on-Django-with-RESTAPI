@@ -21,8 +21,8 @@ requests-oauthlib>=1.2.0
 six>=1.11.0
 setuptools>=18.0.0
 scipy>=1.1.0
-tensorboard=1.13.0
-tensorflow=1.13.1
+tensorboard==1.13.0
+tensorflow==1.13.1
 Keras>=2.2.2
 Keras-Applications>=1.0.4
 Keras-Preprocessing>=1.0.2
