@@ -8,7 +8,7 @@
 [![python3.5](https://img.shields.io/badge/python-3.5-blue.svg)]()
 [![python3.6](https://img.shields.io/badge/python-3.6-brightgreen.svg)]()
 [![django2.1.5](https://img.shields.io/badge/django-2.1.5-orange.svg)]()
-[![Build Status](https://travis-ci.com/nature1995/AI-plateform-server.svg?token=ihxd9jwdJ367UvYy3j9G&branch=master)](https://travis-ci.com/nature1995/AI-plateform-server)
+[![Build Status](https://travis-ci.com/nature1995/AI-Image-classifiers-on-Django-with-RESTAPI.svg?branch=master)](https://travis-ci.com/nature1995/AI-Image-classifiers-on-Django-with-RESTAPI)
 
 ## Introduction  
 A Keras deep learning image classifiers on Django server with REST API. It can help you quickly deploy and apply ML models.
