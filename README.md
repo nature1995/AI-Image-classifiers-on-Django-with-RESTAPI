@@ -57,6 +57,7 @@ git clone https://github.com/nature1995/image-classify-django-server.git
 pip install -r requirements.txt
 python manage.py makemigrations
 python manage.py migrate
+python manage.py collectstatic
 python manage.py runserver 0.0.0.0:8000
 ```
 Access the web page though this link: http://127.0.0.1:8000/
