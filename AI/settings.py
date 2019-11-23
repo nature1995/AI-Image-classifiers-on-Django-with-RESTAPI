@@ -172,8 +172,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Face++ config
-API_KEY = 'GseLmFPc_PRfnjUfPkZ1lmOy_z2dwiv8'
-API_SECRET = 's3S80XFyQJrDDvc6NVF4sPPT7btnq-WD'
+API_KEY = '03dJozofk0Snpf5tv4J-Zt2-QWvghiYr'
+API_SECRET = 'ySrosLfI4QPBXHcMoFkWzyBAs5gkdXGf'
 
 SITE_MODEL = None
 SITE_GRAPH = []

@@ -31,3 +31,62 @@
   </div>
 
 {% endblock content %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script>
+    var app = new Vue({
+      el: '#app',
+      data:{
+          src1: '',
+          file1: null,
+          card_numbers: false
+      },
+      methods:{
+        submit:function(){
+            var self = this
+            $('#shownumber').text('In the calculation, please wait...')
+            $.ajax({
+                url: 'bank_card_request/',
+                type: 'POST',
+                cache: false,
+                data: new FormData($('#faceform')[0]),
+                processData: false,
+                contentType: false,
+                timeout: 10000,//10秒超时时间
+            }).done(function(res) {
+                  {#for(var i=0,l=res.bank_cards.length;i<l;i++) {#}
+                  {#    for (var key in res.bank_cards[i]) {#}
+                  {#        console.log(key + ':' + res.bank_cards[i][key]);#}
+                  {#        card_numbers = res.bank_cards[0]['number']#}
+                  {#    }}#}
+                try {
+                  card_numbers = res.bank_cards[0]['number']
+                  card_organization = res.bank_cards[0]['organization']
+                  card_bank = res.bank_cards[0]['bank']
+                  $('#shownumber').text('Card number: '+ card_numbers)
+                  $('#showorganization').text('Card organization: '+ card_organization)
+                  $('#showbank').text('Card bank: '+ card_bank)
+                }
+                catch (e) {
+                  $('#shownumber').text('Please make sure you upload a bank card, try it again!')
+                }
+            }).fail(function(res) {
+                console.log(res)
+            });
+        },
+        getFile1:function($event){
+          this.file1 = $event.target.files[0];
+          var reader = new FileReader();
+          reader.readAsDataURL(this.file1);
+          var app = this;
+          reader.onloadend=function() {
+              app.src1 = this.result;
+              $('#img1').attr('hidden',false)
+          };
+        },
+      }
+    })
+</script>
+{% endblock scripts %}
