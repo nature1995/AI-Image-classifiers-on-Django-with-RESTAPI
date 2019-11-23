@@ -66,8 +66,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'myauth',
     'widget_tweaks',
-    'apps.myapp',
-    'apps.blogs',
     'apps.qrcreate',
     'apps.face_comparison',
     'apps.bank_card',
