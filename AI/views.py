@@ -8,11 +8,11 @@ def home(request):
 
 
 def page_not_found(request):
-    return render_to_response('404.html')
+    return render_to_response('home.html')
 
 
 def page_error(request):
-    return render_to_response('500.html')
+    return render_to_response('home.html')
 
 
 
