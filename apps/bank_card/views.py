@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import requests
-import Blog.settings as config
+import AI.settings as config
 
 
 # Create your views here.

@@ -1,4 +1,4 @@
-"""Blog URL Configuration
+"""AI URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.0/topics/http/urls/
@@ -28,7 +28,7 @@ from apps.detect_object.views import *
 from apps.gesture.views import *
 from apps.identification.views import *
 from apps.tenc_ai.views import *
-import Blog.views
+import AI.views
 
 urlpatterns = [
     path(r'admin/', admin.site.urls),
@@ -58,5 +58,5 @@ urlpatterns = [
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT,) + static(settings.STATIC_URL,
                                                                             document_root=settings.STATIC_ROOT)
 
-handler404 = Blog.views.page_not_found
-handler500 = Blog.views.page_error
+handler404 = AI.views.page_not_found
+handler500 = AI.views.page_error
