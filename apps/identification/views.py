@@ -1,20 +1,22 @@
 from django.shortcuts import render
-from keras.preprocessing.image import img_to_array
-from keras.applications import imagenet_utils
-from PIL import Image
-import numpy as np
-import io
-import tensorflow as tf
 from django.http import HttpResponse
-import json
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
+from keras.preprocessing.image import img_to_array
+from keras.applications import imagenet_utils
+
 from keras.applications import ResNet50
 from keras.applications import MobileNet, MobileNetV2
 from keras.applications import InceptionV3, InceptionResNetV2
 from keras.applications import DenseNet121, DenseNet169, DenseNet201
 from keras.applications import VGG19, VGG16, Xception
 from keras.applications import NASNetMobile, NASNetLarge
+from PIL import Image
+import numpy as np
+import io
+import tensorflow as tf
+import json
+import ssl
 
 
 #  Convert the image as a correct formation
@@ -37,6 +39,7 @@ def prepare_image(image, target):
 def predict(request):
     try:
         load_model()
+        ssl._create_default_https_context = ssl._create_unverified_context
     except:
         pass
     finally:
