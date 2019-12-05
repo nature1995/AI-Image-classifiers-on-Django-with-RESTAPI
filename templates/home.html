@@ -1,5 +1,4 @@
 {% extends "theme.html" %}
-{% load staticfiles %}
 
 {% block style %}
   <meta name="baidu-site-verification" content="MRMBZA60wg" />
@@ -8,35 +7,34 @@
 
 {% endblock style %}
 
-
 {% block content %}
   <div id="top-display" class="container-fluid p-0">
-      <div id="topDisplay" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#topDisplay" data-slide-to="0" class="active"></li>
-        <li data-target="#topDisplay" data-slide-to="1" class=""></li>
-        <li data-target="#topDisplay" data-slide-to="2" class=""></li>
-      </ol>
-      <div class="carousel-inner">
-        <a class="carousel-item active" href="">
-            <img class="d-block w-100" src="https://s2.ax1x.com/2019/03/19/An5zfe.gif" alt="slide1">
-        </a>
-        <a class="carousel-item" href="">
-            <img class="d-block w-100" src="https://s2.ax1x.com/2019/03/19/AnI9ld.png" alt="slide2">
-        </a>
-        <a class="carousel-item " href="">
-            <img class="d-block w-100" src="https://s2.ax1x.com/2019/03/19/AnIpSH.png" alt="slide3">
-        </a>
-      </div>
-      <a class="carousel-control-prev" href="#topDisplay" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
+    <div id="topDisplay" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#topDisplay" data-slide-to="0" class="active"></li>
+      <li data-target="#topDisplay" data-slide-to="1" class=""></li>
+      <li data-target="#topDisplay" data-slide-to="2" class=""></li>
+    </ol>
+    <div class="carousel-inner">
+      <a class="carousel-item active" href="">
+        <img class="d-block w-100" src="https://s2.ax1x.com/2019/03/19/An5zfe.gif" alt="slide1">
       </a>
-      <a class="carousel-control-next" href="#topDisplay" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
+      <a class="carousel-item" href="">
+        <img class="d-block w-100" src="https://s2.ax1x.com/2019/03/19/AnI9ld.png" alt="slide2">
       </a>
-      </div>
+      <a class="carousel-item " href="">
+        <img class="d-block w-100" src="https://s2.ax1x.com/2019/03/19/AnIpSH.png" alt="slide3">
+      </a>
+    </div>
+    <a class="carousel-control-prev" href="#topDisplay" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#topDisplay" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+    </div>
   </div>
 
   <main role="main">
@@ -46,7 +44,7 @@
     <p>
       <a class="btn btn-danger" href="{% url 'face_comparison' %}">Face Comparison</a>
       <a class="btn btn-warning" href="{% url 'bank_card' %}">Bank Card Detection</a>
-      <a class="btn btn-info btn-lg" href="{% url 'predict' %}">Objects Prediction</a>
+      <a class="btn btn-info btn-lg" href="{% url 'predict' %}"><b>Objects Prediction</b></a>
       <a class="btn btn-success" href="{% url 'gesture' %}">Gesture Detection</a>
 
     </p>
@@ -54,22 +52,22 @@
     </section>
 
    <section id="gallery">
-      <div class="album py-0">
-          <div class="container">
-            <div class="row">
-              {% for gallery in gallerys.all %}
-              <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                  <img class="card-img-top" src="{{ gallery.image.url }}">
-                  <div class="card-body">
-                    <p class="card-text">{{gallery.description}}</p>
-                  </div>
-                </div>
+    <div class="album py-0">
+      <div class="container">
+        <div class="row">
+          {% for gallery in gallerys.all %}
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              <img class="card-img-top" src="{{ gallery.image.url }}">
+              <div class="card-body">
+                <p class="card-text">{{gallery.description}}</p>
               </div>
-            {% endfor %}
             </div>
           </div>
+        {% endfor %}
+        </div>
       </div>
+    </div>
    </section>
   </main>
 {% endblock content %}

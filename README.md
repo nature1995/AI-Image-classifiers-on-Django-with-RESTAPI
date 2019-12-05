@@ -7,8 +7,22 @@
 
 [![python3.5](https://img.shields.io/badge/python-3.5-blue.svg)]()
 [![python3.6](https://img.shields.io/badge/python-3.6-brightgreen.svg)]()
-[![django2.1.5](https://img.shields.io/badge/django-2.1.5-orange.svg)]()
+[![python3.6](https://img.shields.io/badge/python-3.7-orange.svg)]()
+[![django3.0.0](https://img.shields.io/badge/django-3.0.0-brightgreen.svg)]()
 [![Build Status](https://travis-ci.com/nature1995/AI-Image-classifiers-on-Django-with-RESTAPI.svg?branch=master)](https://travis-ci.com/nature1995/AI-Image-classifiers-on-Django-with-RESTAPI)
+
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Description](#description)
+- [Features](#features)
+- [Architecture](#architecture)
+- [Usage](#usage)
+- [Results](#results)
+- [Issue](#issue)
+- [Others](#others)
+- [License](#license)
 
 ## Introduction  
 A Keras deep learning image classifiers on Django server with REST API. It can help you quickly deploy and apply ML models.
@@ -43,11 +57,6 @@ Machine Learning (ML) models are typically trained and test on benchmark data se
 <img src="https://s2.ax1x.com/2019/05/01/EJBx0S.png" width="600" height="300" alt="Result01.png" title="Result01.png" />
 </div>
 
-## Requirements
-```
-pip3 install -r requirements.txt
-```
-
 ## Usage
 I assume you already have your own local virtual environment.  
 ```
@@ -69,7 +78,7 @@ Bank card identification  	| Identify the field information above the bank card
 Gesture identification  	| Detect and return the meaning of the gesture in the picture.
 Image classify 				| Detects objects in the image, returns the detected object name, and the corresponding confidence.		
 
-## Web API for image classify
+## Result
 
 Name         		| Input Size| API address
 ---------    		| ----------| ----------------------------------------------------
@@ -157,11 +166,10 @@ POST http://127.0.0.1:8000/predict_VGG19/api/
 ```
 
 ## Compatibility
-The codes are tested using Travis-CI platform with django 2.1.x and Python 3.5, 3.6
+Support to Django>=2.1.5 or Django==3.0.0 and Python 3.5, 3.6, 3.7.
 
 ## Issue
 If you have questions or issues, please feel free to tell us.
-
 ## Contribution
 Welcome to make pull request. If you have a related project/component/tool, add it with a pull request to add it!
 
@@ -181,10 +189,12 @@ Access the web page though this link: http://127.0.0.1:8000/admin
 
 Access the web page though this link: http://127.0.0.1:8000/iot/
 
-## Author
+## Contributors
 
-* **Ziran Gong** - [Web Page](http://ranxiaolang.com)
-* **Sergul Aydore** - [Web Page](https://github.com/sergulaydore)
+[@nature1995](http://ranxiaolang.com)  
+
+[@sergulaydore](https://sergulaydore.com)  
 
 ## License
-This software is licensed under the MIT License. For more information, read the file [LICENSE](https://github.com/nature1995/AI-Image-classifiers-on-Django-with-RESTAPI/blob/master/LICENSE.md).
+
+[MIT](LICENSE) ©

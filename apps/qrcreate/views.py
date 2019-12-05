@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import qrcode
-from django.utils.six import BytesIO
+from io import BytesIO
 
 
 def generate_qrcode(request, data):

@@ -1,4 +1,4 @@
-from django.shortcuts import render,  render_to_response
+from django.shortcuts import render
 from gallery.models import Gallery
 
 
@@ -7,12 +7,12 @@ def home(request):
     return render(request, 'home.html', {'gallerys': gallerys})
 
 
-def page_not_found(request):
-    return render_to_response('home.html')
+def handler404(request, exception):
+    return render('home.html')
 
 
-def page_error(request):
-    return render_to_response('home.html')
+def handler500(request):
+    return render('home.html')
 
 
 
