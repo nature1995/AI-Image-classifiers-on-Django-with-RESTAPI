@@ -78,6 +78,14 @@ Bank card identification  	| Identify the field information above the bank card
 Gesture identification  	| Detect and return the meaning of the gesture in the picture.
 Image classify 				| Detects objects in the image, returns the detected object name, and the corresponding confidence.		
 
+### Docker
+You can use `dockerfile` to build this project easily.
+```sh
+# Follow any instruction to install the docker-ce, docker for OS X or PC in your device
+docker build -t ai_image_classifiers .
+docker run -it --rm -p 8000:8000 --name ai_image_classifiers_app ai_image_classifiers:latest
+```
+
 ## Result
 
 Name         		| Input Size| API address
